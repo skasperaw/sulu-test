@@ -1,0 +1,30 @@
+<section class="history section-pad" id="geschichte">
+    <div class="wrap">
+        <div class="head reveal">
+            {%- if block.eyebrow -%}
+                <div class="eyebrow"><span class="rule" aria-hidden="true"></span>{{- block.eyebrow -}}</div>
+            {%- endif -%}
+            <h2>{{- block.headline|default('Beinahe sieben Jahrzehnte,') -}} <em>{{- block.headline_italic|default('ein Versprechen.') -}}</em></h2>
+            {%- if block.intro_text -%}<p>{{- block.intro_text -}}</p>{%- endif -%}
+        </div>
+
+        <div class="timeline">
+            {%- for i in 1..5 -%}
+                {%- set year  = attribute(block, 'tl' ~ i ~ '_year') -%}
+                {%- set title = attribute(block, 'tl' ~ i ~ '_title') -%}
+                {%- set text  = attribute(block, 'tl' ~ i ~ '_text') -%}
+                {%- if year or title -%}
+                    <div class="tl reveal{% if i > 1 %} d{{ i - 1 }}{% endif %}">
+                        {%- if year -%}
+                            <div class="yr">
+                                {{- year|slice(0, 2) -}}<em>{{- year|slice(2) -}}</em>
+                            </div>
+                        {%- endif -%}
+                        {%- if title -%}<h4>{{- title -}}</h4>{%- endif -%}
+                        {%- if text -%}<p>{{- text -}}</p>{%- endif -%}
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+    </div>
+</section>

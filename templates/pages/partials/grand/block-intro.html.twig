@@ -1,0 +1,62 @@
+{%- set imgA = block.image_a and block.image_a.id
+    ? block.image_a.thumbnails['text_media']
+    : 'https://images.unsplash.com/photo-1551776235-dde6d4829808?auto=format&fit=crop&w=1400&q=80' -%}
+{%- set imgB = block.image_b and block.image_b.id
+    ? block.image_b.thumbnails['text_media']
+    : 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1400&q=80' -%}
+{%- set imgAlt = block.image_a and block.image_a.id ? block.image_a.description|default(block.image_a.title)|default('') : '' -%}
+
+<section class="intro section-pad" id="willkommen">
+    <div class="wrap">
+        <div class="grid">
+            <div class="col-left reveal">
+                <div class="num-row">
+                    {%- if block.roman_numeral -%}
+                        <div class="num" aria-hidden="true">{{- block.roman_numeral -}}</div>
+                    {%- endif -%}
+                    <div class="num-label">
+                        {%- if block.eyebrow -%}
+                            <div class="eyebrow"><span class="rule" aria-hidden="true"></span>{{- block.eyebrow -}}</div>
+                        {%- endif -%}
+                        {%- if block.eyebrow_sub -%}
+                            <div class="smallcaps" style="margin-top:8px">{{- block.eyebrow_sub -}}</div>
+                        {%- endif -%}
+                    </div>
+                </div>
+
+                <h2>{{- block.headline|default('Ein Haus mit Haltung —') -}} <em>{{- block.headline_italic|default('und einer Seele.') -}}</em></h2>
+
+                {%- if block.text_1 -%}
+                    <p>{{- block.text_1 -}}</p>
+                {%- endif -%}
+                {%- if block.text_2 -%}
+                    <p>{{- block.text_2 -}}</p>
+                {%- endif -%}
+
+                {%- if block.signature_name -%}
+                    <span class="sig">{{- block.signature_name -}}
+                        {%- if block.signature_role -%}
+                            <small>{{- block.signature_role -}}</small>
+                        {%- endif -%}
+                    </span>
+                {%- endif -%}
+            </div>
+
+            <div class="img-stack reveal d2">
+                <div class="a" style="background-image:url('{{ imgA }}')" role="img" aria-label="{{ imgAlt }}"></div>
+                <div class="b" style="background-image:url('{{ imgB }}')"></div>
+                <div class="seal" aria-hidden="true">
+                    <svg viewBox="0 0 130 130">
+                        <defs>
+                            <path id="circle-{{ loop.index }}" d="M65,65 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/>
+                        </defs>
+                        <text fill="#c8a967" font-family="Jost, sans-serif" font-size="9" letter-spacing="2.4">
+                            <textPath href="#circle-{{ loop.index }}">FAMILIE MEURER · GRAND HOTEL MITTE · GEGRÜNDET 1963 · </textPath>
+                        </text>
+                    </svg>
+                    <div class="ctr">★<small>5-Sterne<br>Superior</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

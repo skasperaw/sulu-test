@@ -21,4 +21,28 @@
 
     <img src="{{ image.thumbnails['300x'] }}" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}">
     -->
+
+    <format key="hotel_wide">
+        <meta>
+            <title lang="en">Hotel Wide</title>
+            <title lang="de">Hotel Breit</title>
+        </meta>
+        <scale x="1920" mode="inset"/>
+    </format>
+
+    <format key="room_card">
+        <meta>
+            <title lang="en">Room Card</title>
+            <title lang="de">Zimmerkarte</title>
+        </meta>
+        <scale x="800" mode="inset"/>
+    </format>
+
+    <format key="text_media">
+        <meta>
+            <title lang="en">Text + Media Block</title>
+            <title lang="de">Text + Bild Block</title>
+        </meta>
+        <scale x="800" mode="inset"/>
+    </format>
 </formats>

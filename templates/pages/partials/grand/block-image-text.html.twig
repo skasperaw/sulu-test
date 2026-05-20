@@ -1,0 +1,39 @@
+{%- set isNarrow = block.use_container -%}
+{%- set hasImage = block.image and block.image.id -%}
+{%- set hasText  = block.text and block.text|striptags|trim is not empty -%}
+
+{%- if hasImage or hasText -%}
+<section class="media-block media-block--{{ isNarrow ? 'narrow' : 'full' }}">
+    {%- if isNarrow -%}
+        <div class="media-block__inner">
+            {%- if hasImage -%}
+                <figure class="media-block__figure">
+                    <img src="{{ block.image.thumbnails['room_card'] }}"
+                         alt="{{ block.image.description|default(block.image.title)|default('') }}"
+                         loading="lazy">
+                </figure>
+            {%- endif -%}
+            {%- if hasText -%}
+                <div class="media-block__body">
+                    {{- block.text|sanitize_html('sulu_wysiwyg')|raw -}}
+                </div>
+            {%- endif -%}
+        </div>
+    {%- else -%}
+        {%- if hasImage -%}
+            <figure class="media-block__figure">
+                <img src="{{ block.image.thumbnails['hotel_wide'] }}"
+                     alt="{{ block.image.description|default(block.image.title)|default('') }}"
+                     loading="lazy">
+            </figure>
+        {%- endif -%}
+        {%- if hasText -%}
+            <div class="wrap">
+                <div class="media-block__body">
+                    {{- block.text|sanitize_html('sulu_wysiwyg')|raw -}}
+                </div>
+            </div>
+        {%- endif -%}
+    {%- endif -%}
+</section>
+{%- endif -%}

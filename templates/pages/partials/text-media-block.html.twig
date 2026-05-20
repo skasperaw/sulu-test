@@ -1,0 +1,25 @@
+{%- set imagePositionRaw = block.imagePosition|default('left') -%}
+{%- set imagePosition = imagePositionRaw in ['left', 'right'] ? imagePositionRaw : 'left' -%}
+{%- set textSanitized = block.text ? block.text|sanitize_html('sulu_wysiwyg') : '' -%}
+<div class="text-media text-media--image-{{ imagePosition }}">
+    {%- if block.headline -%}
+        <h2 class="text-media__headline">{{- block.headline -}}</h2>
+    {%- endif -%}
+
+    <div class="text-media__inner">
+        {%- if textSanitized|striptags|trim -%}
+            <div class="text-media__text">
+                {{- textSanitized|raw -}}
+            </div>
+        {%- endif -%}
+
+        {%- if block.image and block.image.id -%}
+            <figure class="text-media__figure">
+                <img src="{{- block.image.thumbnails['text_media'] -}}"
+                     alt="{{- block.image.description|default(block.image.title)|default('') -}}"
+                     loading="lazy"
+                     width="800">
+            </figure>
+        {%- endif -%}
+    </div>
+</div>

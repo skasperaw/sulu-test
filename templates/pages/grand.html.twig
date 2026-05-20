@@ -1,0 +1,27 @@
+{% extends 'grand_layout.html.twig' %}
+
+{%- block content -%}
+    {%- for block in content.sections -%}
+        {%- if block.type == 'hero' -%}
+            {{- include('pages/partials/grand/block-hero.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'intro' -%}
+            {{- include('pages/partials/grand/block-intro.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'stats' -%}
+            {{- include('pages/partials/grand/block-stats.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'rooms' -%}
+            {{- include('pages/partials/grand/block-rooms.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'restaurant' -%}
+            {{- include('pages/partials/grand/block-restaurant.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'lounges' -%}
+            {{- include('pages/partials/grand/block-lounges.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'events' -%}
+            {{- include('pages/partials/grand/block-events.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'history' -%}
+            {{- include('pages/partials/grand/block-history.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'image_text' -%}
+            {{- include('pages/partials/grand/block-image-text.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'cta_strip' -%}
+            {{- include('pages/partials/grand/block-cta-strip.html.twig', { block: block }) -}}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endblock -%}

@@ -1,0 +1,17 @@
+<section class="stats">
+    <div class="wrap row">
+        {%- for i in 1..4 -%}
+            {%- set num = attribute(block, 'stat' ~ i ~ '_number') -%}
+            {%- set italic = attribute(block, 'stat' ~ i ~ '_italic') -%}
+            {%- set label = attribute(block, 'stat' ~ i ~ '_label') -%}
+            {%- if num or label -%}
+                <div class="cell reveal{% if i > 1 %} d{{ i - 1 }}{% endif %}">
+                    <div class="n">
+                        {%- if italic -%}<em>{{- num -}}</em>{%- else -%}{{- num -}}{%- endif -%}
+                    </div>
+                    {%- if label -%}<div class="label">{{- label -}}</div>{%- endif -%}
+                </div>
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
+</section>

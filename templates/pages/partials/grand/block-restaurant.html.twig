@@ -1,0 +1,71 @@
+{%- set mainImgUrl = block.main_image and block.main_image.id
+    ? block.main_image.thumbnails['hotel_wide']
+    : 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80' -%}
+{%- set accentImgUrl = block.accent_image and block.accent_image.id
+    ? block.accent_image.thumbnails['text_media']
+    : 'https://images.unsplash.com/photo-1547573854-74d2a71d0826?auto=format&fit=crop&w=1200&q=80' -%}
+{%- set chefImgUrl = block.chef_image and block.chef_image.id
+    ? block.chef_image.thumbnails['text_media']
+    : 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=400&q=80' -%}
+
+<section class="restaurant section-pad" id="restaurant">
+    <div class="wrap inner">
+        <div class="imagery reveal">
+            <div class="main" style="background-image:url('{{ mainImgUrl }}')" role="img" aria-label="Restaurant Mitte"></div>
+            <div class="accent" style="background-image:url('{{ accentImgUrl }}')"></div>
+            {%- if block.michelin_label -%}
+                <div class="star-badge">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.6 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.4L12 2z"/></svg>
+                    <div class="t">
+                        <strong>{{- block.michelin_label -}}</strong>
+                        {%- if block.michelin_sub -%}<small>{{- block.michelin_sub -}}</small>{%- endif -%}
+                    </div>
+                </div>
+            {%- endif -%}
+        </div>
+
+        <div class="copy reveal d2">
+            {%- if block.eyebrow -%}
+                <div class="eyebrow"><span class="rule" style="background:var(--gold-soft)" aria-hidden="true"></span>{{- block.eyebrow -}}</div>
+            {%- endif -%}
+            <h2>{{- block.headline|default('Eine Küche,') -}} <em>{{- block.headline_italic|default('die zuhört.') -}}</em></h2>
+
+            {%- if block.text -%}
+                <div class="restaurant-text">{{- block.text|sanitize_html('sulu_wysiwyg')|raw -}}</div>
+            {%- endif -%}
+
+            {%- if block.chef_name -%}
+                <div class="chef">
+                    <div class="avatar" style="background-image:url('{{ chefImgUrl }}')" role="img" aria-label="{{ block.chef_name }}"></div>
+                    <div class="who">
+                        <strong>{{- block.chef_name -}}</strong>
+                        {%- if block.chef_role -%}<small>{{- block.chef_role -}}</small>{%- endif -%}
+                    </div>
+                </div>
+            {%- endif -%}
+
+            {%- set hasDishes = block.dish1_name or block.dish2_name or block.dish3_name or block.dish4_name -%}
+            {%- if hasDishes -%}
+                <div class="menu-peek">
+                    {%- for i in 1..4 -%}
+                        {%- set dishName = attribute(block, 'dish' ~ i ~ '_name') -%}
+                        {%- set dishDesc = attribute(block, 'dish' ~ i ~ '_desc') -%}
+                        {%- if dishName -%}
+                            <div class="dish">
+                                <div class="name">{{- dishName -}}</div>
+                                {%- if dishDesc -%}<div class="desc">{{- dishDesc -}}</div>{%- endif -%}
+                            </div>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </div>
+            {%- endif -%}
+
+            {%- if block.cta_text -%}
+                <a href="#" class="btn-line">
+                    {{- block.cta_text -}}
+                    <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4"/></svg>
+                </a>
+            {%- endif -%}
+        </div>
+    </div>
+</section>

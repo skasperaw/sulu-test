@@ -1,0 +1,58 @@
+{%- set imgUrl = block.image and block.image.id
+    ? block.image.thumbnails['hotel_wide']
+    : 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=80' -%}
+
+<section class="events section-pad" id="tagungen">
+    <div class="wrap">
+        <div class="grid">
+            <div class="reveal">
+                {%- if block.eyebrow -%}
+                    <div class="eyebrow"><span class="rule" aria-hidden="true"></span>{{- block.eyebrow -}}</div>
+                {%- endif -%}
+                <h2>{{- block.headline|default('Säle, die') -}} <em>{{- block.headline_italic|default('einen Anlass würdig tragen.') -}}</em></h2>
+                {%- if block.text -%}<p>{{- block.text -}}</p>{%- endif -%}
+
+                {%- set hasRooms = block.room1_name or block.room2_name or block.room3_name or block.room4_name -%}
+                {%- if hasRooms -%}
+                    <div class="rooms-list">
+                        {%- for i in 1..4 -%}
+                            {%- set rNum  = attribute(block, 'room' ~ i ~ '_number') -%}
+                            {%- set rName = attribute(block, 'room' ~ i ~ '_name') -%}
+                            {%- set rCap  = attribute(block, 'room' ~ i ~ '_capacity') -%}
+                            {%- set rType = attribute(block, 'room' ~ i ~ '_type') -%}
+                            {%- if rName -%}
+                                <div class="row">
+                                    <div class="n">{{- rNum -}}</div>
+                                    <div class="nm">{{- rName -}}</div>
+                                    <div class="meta">{{- rCap -}}</div>
+                                    <div class="meta" style="text-align:right">{{- rType -}}</div>
+                                </div>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </div>
+                {%- endif -%}
+
+                {%- if block.cta_text -%}
+                    <a href="#" class="btn-line" style="color:var(--gold-deep);border-color:var(--gold)">
+                        {{- block.cta_text -}}
+                        <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4"/></svg>
+                    </a>
+                {%- endif -%}
+            </div>
+
+            <div class="image-side reveal d2" style="background-image:url('{{ imgUrl }}')">
+                {%- if block.ribbon_text -%}
+                    <div class="ribbon">{{- block.ribbon_text -}}</div>
+                {%- endif -%}
+                {%- if block.quote_text -%}
+                    <div class="quote">
+                        <p class="q">&bdquo;{{- block.quote_text -}}&ldquo;</p>
+                        {%- if block.quote_who -%}
+                            <div class="who">— {{- block.quote_who -}}</div>
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+            </div>
+        </div>
+    </div>
+</section>

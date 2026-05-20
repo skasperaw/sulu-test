@@ -1,0 +1,51 @@
+{%- set bgUrl = block.background_image and block.background_image.id
+    ? block.background_image.thumbnails['hotel_wide']
+    : 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=2400&q=80' -%}
+
+<header class="hero">
+    <div class="bg" role="img" aria-label="Stilvolles Hotelambiente" style="background-image:url('{{ bgUrl }}')"></div>
+
+    <div class="content">
+        {%- if block.since_text -%}
+            <div class="since">
+                <i></i>
+                <span>{{- block.since_text -}}</span>
+                <i></i>
+            </div>
+        {%- endif -%}
+
+        <h1>
+            {{- block.headline|default('Wo Freiburg') -}}<br>
+            <em>{{- block.headline_italic|default('willkommen heißt.') -}}</em>
+        </h1>
+
+        {%- if block.tagline -%}
+            <p class="tagline">{{- block.tagline -}}</p>
+        {%- endif -%}
+
+        <div class="scroll" aria-hidden="true"><span></span>Entdecken</div>
+    </div>
+
+    <form class="booking" onsubmit="event.preventDefault();" aria-label="Zimmerverfügbarkeit prüfen">
+        <div class="field">
+            <label for="arr">Anreise</label>
+            <div class="val">Fr · 22. Mai <small>2026</small></div>
+        </div>
+        <div class="field">
+            <label for="dep">Abreise</label>
+            <div class="val">So · 24. Mai <small>2026</small></div>
+        </div>
+        <div class="field">
+            <label for="guests">Gäste</label>
+            <div class="val">2 Erwachsene</div>
+        </div>
+        <div class="field">
+            <label for="room-type">Zimmer</label>
+            <div class="val">1 Zimmer <small>Suite</small></div>
+        </div>
+        <button class="cta" type="submit">
+            Verfügbarkeit prüfen
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+        </button>
+    </form>
+</header>

@@ -1,0 +1,22 @@
+{%- set bgUrl = block.background_image and block.background_image.id
+    ? block.background_image.thumbnails['hotel_wide']
+    : 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=2400&q=80' -%}
+
+<section class="cta-strip" id="kontakt" style="background-image:linear-gradient(180deg,rgba(20,16,10,.55),rgba(20,16,10,.55)),url('{{ bgUrl }}')">
+    {%- if block.eyebrow -%}
+        <div class="eyebrow" style="color:var(--gold-soft)">
+            <span class="rule" style="background:var(--gold-soft)" aria-hidden="true"></span>{{- block.eyebrow -}}
+        </div>
+    {%- endif -%}
+
+    <h2>{{- block.headline|default('Ankommen, wo') -}} <em>{{- block.headline_italic|default('Freiburg beginnt.') -}}</em></h2>
+
+    {%- if block.text -%}<p>{{- block.text -}}</p>{%- endif -%}
+
+    {%- if block.button_text -%}
+        <a href="#" class="btn-solid">
+            {{- block.button_text -}}
+            <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4"/></svg>
+        </a>
+    {%- endif -%}
+</section>

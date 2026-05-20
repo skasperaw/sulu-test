@@ -1,0 +1,45 @@
+<section class="lounges section-pad" id="bar">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="reveal">
+                {%- if block.eyebrow -%}
+                    <div class="eyebrow"><span class="rule" aria-hidden="true"></span>{{- block.eyebrow -}}</div>
+                {%- endif -%}
+            </div>
+            <div class="reveal d1">
+                <h2>{{- block.headline|default('Zwei Räume,') -}} <em>{{- block.headline_italic|default('zwei Stimmungen.') -}}</em></h2>
+                {%- if block.description -%}
+                    <p class="desc" style="margin-top:24px">{{- block.description -}}</p>
+                {%- endif -%}
+            </div>
+        </div>
+
+        <div class="split">
+            {%- for i in 1..2 -%}
+                {%- set number   = attribute(block, 'lounge' ~ i ~ '_number') -%}
+                {%- set title    = attribute(block, 'lounge' ~ i ~ '_title') -%}
+                {%- set titleEm  = attribute(block, 'lounge' ~ i ~ '_title_italic') -%}
+                {%- set text     = attribute(block, 'lounge' ~ i ~ '_text') -%}
+                {%- set hours    = attribute(block, 'lounge' ~ i ~ '_hours') -%}
+                {%- set img      = attribute(block, 'lounge' ~ i ~ '_image') -%}
+                {%- set fallbacks = [
+                    'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1600&q=80',
+                    'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1600&q=80'
+                ] -%}
+                {%- set imgSrc = img and img.id ? img.thumbnails['hotel_wide'] : fallbacks[i - 1] -%}
+                {%- set imgAlt = img and img.id ? img.description|default(img.title)|default('') : '' -%}
+
+                <article class="lounge reveal{% if i == 2 %} d1{% endif %}">
+                    <img src="{{ imgSrc }}" alt="{{ imgAlt }}" loading="lazy">
+                    <div class="veil" aria-hidden="true"></div>
+                    <div class="body">
+                        {%- if number -%}<div class="eyebrow">{{- number -}}</div>{%- endif -%}
+                        <h3>{{- title|default('') -}}{%- if titleEm -%}<em>{{- titleEm -}}</em>{%- endif -%}</h3>
+                        {%- if text -%}<p>{{- text -}}</p>{%- endif -%}
+                        {%- if hours -%}<div class="hours">{{- hours -}}</div>{%- endif -%}
+                    </div>
+                </article>
+            {%- endfor -%}
+        </div>
+    </div>
+</section>

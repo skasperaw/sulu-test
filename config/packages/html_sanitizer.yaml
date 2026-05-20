@@ -1,0 +1,12 @@
+framework:
+    html_sanitizer:
+        sanitizers:
+            sulu_wysiwyg:
+                allow_safe_elements: true
+                allowed_link_schemes: ['https', 'http', 'mailto']
+
+                allow_relative_links: true
+                drop_elements: ['script', 'style', 'iframe', 'object', 'embed', 'form']
+                force_attributes:
+                    a:
+                        rel: 'noopener noreferrer'

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|split('_')[0] }}" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{{ content.title|default('Grand Hotel Mitte') }}{% endblock %} · Grand Hotel Mitte</title>
+
+    {% block meta %}
+        {{ include('@SuluWebsite/Extension/seo.html.twig', {
+            seo: extension.seo|default([]),
+            content: content|default([]),
+            localizations: localizations|default([]),
+            shadowBaseLocale: shadowBaseLocale|default(),
+        }) }}
+    {% endblock %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/website.css">
+
+    <script>(function(){document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');})()</script>
+
+    {% block style %}{% endblock %}
+</head>
+<body>
+
+<!-- Top utility bar -->
+<div class="topbar">
+    <div class="wrap inner">
+        <div class="left">
+            <span class="star">★★★★★ Superior</span>
+            <a href="#">Marktplatz 1 · 10117 Berlin</a>
+            <a href="#">+49 30 1234560</a>
+        </div>
+        <div class="right">
+            {%- for localization in localizations|default([]) -%}
+                <a href="{{ localization.url }}"{% if localization.locale == app.request.locale %} style="opacity:.5"{% endif %}>
+                    {{- localization.locale|upper|slice(0, 2) -}}
+                </a>
+            {%- else -%}
+                <a href="#" style="opacity:.5">DE</a>
+                <a href="#">EN</a>
+            {%- endfor -%}
+            <a href="#">Gutscheine</a>
+            <a href="#">Newsletter</a>
+        </div>
+    </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="nav" id="nav" aria-label="Hauptnavigation">
+    <div class="wrap inner">
+        <div class="links left">
+            <a href="#zimmer">Zimmer & Suiten</a>
+            <a href="#restaurant">Restaurant</a>
+            <a href="#bar">Bar & Lounge</a>
+        </div>
+        <a href="{{ sulu_content_root_path() }}" class="brand" aria-label="Grand Hotel Mitte – Startseite">
+            <span class="mark">Grand</span>
+            <span class="sub">Hotel · Berlin</span>
+            <span class="ornament" aria-hidden="true">
+                <i></i>
+                <svg viewBox="0 0 9 9" fill="currentColor"><circle cx="4.5" cy="4.5" r="2"/></svg>
+                <i></i>
+            </span>
+        </a>
+        <div class="links right">
+            <a href="#tagungen">Tagungen</a>
+            <a href="#geschichte">Geschichte</a>
+            <a href="#kontakt">Kontakt</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<main id="main">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- Footer -->
+<footer id="kontakt">
+    <div class="grid">
+        <div class="brand-block">
+            <div class="mark">Grand</div>
+            <div class="sub">Hotel · Berlin</div>
+            <p>Ein Stadthotel am Herzen der Hauptstadt, geführt von der Familie Meurer seit 1963. Mitglied der Leading Hotels of the World.</p>
+        </div>
+
+        <div class="col">
+            <h5>Kontakt</h5>
+            <ul>
+                <li>Marktplatz 1</li>
+                <li>10117 Berlin</li>
+                <li class="label" style="margin-top:14px">Telefon</li>
+                <li>+49 30 1234560</li>
+                <li class="label" style="margin-top:14px">E-Mail</li>
+                <li>welcome@grandhotelmitte.de</li>
+            </ul>
+        </div>
+
+        <div class="col">
+            <h5>Entdecken</h5>
+            <a href="#zimmer">Zimmer & Suiten</a>
+            <a href="#restaurant">Restaurant Mitte</a>
+            <a href="#bar">Die Bibliotheksbar</a>
+            <a href="#bar">Dachterrasse</a>
+            <a href="#tagungen">Tagungen & Bankette</a>
+            <a href="#geschichte">Geschichte des Hauses</a>
+            <a href="#">Gutscheine</a>
+        </div>
+
+        <div class="col">
+            <h5>Folgen</h5>
+            <a href="#" rel="noopener noreferrer" target="_blank">Instagram</a>
+            <a href="#">Journal</a>
+            <a href="#">Newsletter</a>
+            <a href="#">Presse</a>
+            <h5 style="margin-top:28px">Auszeichnungen</h5>
+            <a href="#" rel="noopener noreferrer" target="_blank">Leading Hotels of the World</a>
+            <a href="#">Guide Michelin · 1★</a>
+            <a href="#">Gault & Millau · 17 Punkte</a>
+        </div>
+    </div>
+
+    <div class="legal">
+        <div>© 1963 – {{ 'now'|date('Y') }} Grand Hotel Mitte GmbH & Co. KG</div>
+        <div class="links">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">AGB</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/website.js"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

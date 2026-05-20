@@ -1,0 +1,349 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>grand</key>
+    <view>pages/grand</view>
+    <controller>Sulu\Content\UserInterface\Controller\Website\ContentController::indexAction</controller>
+    <cacheLifetime>86400</cacheLifetime>
+
+    <meta>
+        <title lang="de">Grand Hotel (Flexibel)</title>
+        <title lang="en">Grand Hotel (Flexible)</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="de">Seitentitel</title>
+                <title lang="en">Page Title</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="url" type="route" mandatory="true">
+            <meta>
+                <title lang="de">Adresse</title>
+                <title lang="en">Resourcelocator</title>
+            </meta>
+            <tag name="sulu.rlp"/>
+        </property>
+
+        <block name="sections" default-type="hero">
+            <meta>
+                <title lang="de">Seitenbereiche</title>
+                <title lang="en">Page Sections</title>
+            </meta>
+
+            <types>
+
+                <!-- ===================== HERO ===================== -->
+                <type name="hero">
+                    <meta>
+                        <title lang="de">Held (Hero)</title>
+                        <title lang="en">Hero</title>
+                    </meta>
+                    <properties>
+                        <property name="since_text" type="text_line">
+                            <meta><title lang="de">Seit-Text</title><title lang="en">Since Text</title></meta>
+                        </property>
+                        <property name="headline" type="text_line">
+                            <meta><title lang="de">Überschrift (1. Zeile)</title><title lang="en">Headline (line 1)</title></meta>
+                        </property>
+                        <property name="headline_italic" type="text_line">
+                            <meta><title lang="de">Überschrift (2. Zeile, kursiv)</title><title lang="en">Headline (line 2, italic)</title></meta>
+                        </property>
+                        <property name="tagline" type="text_line">
+                            <meta><title lang="de">Tagline</title><title lang="en">Tagline</title></meta>
+                        </property>
+                        <property name="background_image" type="single_media_selection">
+                            <meta><title lang="de">Hintergrundbild</title><title lang="en">Background Image</title></meta>
+                        </property>
+                    </properties>
+                </type>
+
+                <!-- ===================== INTRO ===================== -->
+                <type name="intro">
+                    <meta>
+                        <title lang="de">Einleitung</title>
+                        <title lang="en">Intro</title>
+                    </meta>
+                    <properties>
+                        <property name="roman_numeral" type="text_line">
+                            <meta><title lang="de">Römische Zahl</title><title lang="en">Roman Numeral</title></meta>
+                        </property>
+                        <property name="eyebrow" type="text_line">
+                            <meta><title lang="de">Eyebrow</title><title lang="en">Eyebrow</title></meta>
+                        </property>
+                        <property name="eyebrow_sub" type="text_line">
+                            <meta><title lang="de">Eyebrow Untertitel</title><title lang="en">Eyebrow Subtitle</title></meta>
+                        </property>
+                        <property name="headline" type="text_line">
+                            <meta><title lang="de">Überschrift</title><title lang="en">Headline</title></meta>
+                        </property>
+                        <property name="headline_italic" type="text_line">
+                            <meta><title lang="de">Überschrift kursiv</title><title lang="en">Headline italic</title></meta>
+                        </property>
+                        <property name="text_1" type="text_area">
+                            <meta><title lang="de">Absatz 1</title><title lang="en">Paragraph 1</title></meta>
+                        </property>
+                        <property name="text_2" type="text_area">
+                            <meta><title lang="de">Absatz 2</title><title lang="en">Paragraph 2</title></meta>
+                        </property>
+                        <property name="signature_name" type="text_line">
+                            <meta><title lang="de">Unterschrift Name</title><title lang="en">Signature Name</title></meta>
+                        </property>
+                        <property name="signature_role" type="text_line">
+                            <meta><title lang="de">Unterschrift Rolle</title><title lang="en">Signature Role</title></meta>
+                        </property>
+                        <property name="image_a" type="single_media_selection">
+                            <meta><title lang="de">Bild A (Hintergrund)</title><title lang="en">Image A (background)</title></meta>
+                        </property>
+                        <property name="image_b" type="single_media_selection">
+                            <meta><title lang="de">Bild B (Vordergrund)</title><title lang="en">Image B (foreground)</title></meta>
+                        </property>
+                    </properties>
+                </type>
+
+                <!-- ===================== STATS ===================== -->
+                <type name="stats">
+                    <meta>
+                        <title lang="de">Statistiken</title>
+                        <title lang="en">Stats</title>
+                    </meta>
+                    <properties>
+                        <property name="stat1_number" type="text_line"><meta><title lang="de">Zahl 1</title><title lang="en">Number 1</title></meta></property>
+                        <property name="stat1_italic" type="checkbox"><meta><title lang="de">Zahl 1 kursiv?</title><title lang="en">Number 1 italic?</title></meta></property>
+                        <property name="stat1_label" type="text_line"><meta><title lang="de">Label 1</title><title lang="en">Label 1</title></meta></property>
+                        <property name="stat2_number" type="text_line"><meta><title lang="de">Zahl 2</title><title lang="en">Number 2</title></meta></property>
+                        <property name="stat2_italic" type="checkbox"><meta><title lang="de">Zahl 2 kursiv?</title><title lang="en">Number 2 italic?</title></meta></property>
+                        <property name="stat2_label" type="text_line"><meta><title lang="de">Label 2</title><title lang="en">Label 2</title></meta></property>
+                        <property name="stat3_number" type="text_line"><meta><title lang="de">Zahl 3</title><title lang="en">Number 3</title></meta></property>
+                        <property name="stat3_italic" type="checkbox"><meta><title lang="de">Zahl 3 kursiv?</title><title lang="en">Number 3 italic?</title></meta></property>
+                        <property name="stat3_label" type="text_line"><meta><title lang="de">Label 3</title><title lang="en">Label 3</title></meta></property>
+                        <property name="stat4_number" type="text_line"><meta><title lang="de">Zahl 4</title><title lang="en">Number 4</title></meta></property>
+                        <property name="stat4_italic" type="checkbox"><meta><title lang="de">Zahl 4 kursiv?</title><title lang="en">Number 4 italic?</title></meta></property>
+                        <property name="stat4_label" type="text_line"><meta><title lang="de">Label 4</title><title lang="en">Label 4</title></meta></property>
+                    </properties>
+                </type>
+
+                <!-- ===================== ROOMS ===================== -->
+                <type name="rooms">
+                    <meta>
+                        <title lang="de">Zimmer &amp; Suiten</title>
+                        <title lang="en">Rooms &amp; Suites</title>
+                    </meta>
+                    <properties>
+                        <property name="eyebrow" type="text_line"><meta><title lang="de">Eyebrow</title><title lang="en">Eyebrow</title></meta></property>
+                        <property name="headline" type="text_line"><meta><title lang="de">Überschrift</title><title lang="en">Headline</title></meta></property>
+                        <property name="headline_italic" type="text_line"><meta><title lang="de">Überschrift kursiv</title><title lang="en">Headline italic</title></meta></property>
+                        <property name="description" type="text_area"><meta><title lang="de">Beschreibung</title><title lang="en">Description</title></meta></property>
+                        <!-- Room 1 -->
+                        <property name="room1_number" type="text_line"><meta><title lang="de">Zimmer 1 · Nummer</title><title lang="en">Room 1 · Number</title></meta></property>
+                        <property name="room1_title" type="text_line"><meta><title lang="de">Zimmer 1 · Titel</title><title lang="en">Room 1 · Title</title></meta></property>
+                        <property name="room1_meta" type="text_line"><meta><title lang="de">Zimmer 1 · Meta (m², Lage)</title><title lang="en">Room 1 · Meta (m², location)</title></meta></property>
+                        <property name="room1_price" type="text_line"><meta><title lang="de">Zimmer 1 · Preis</title><title lang="en">Room 1 · Price</title></meta></property>
+                        <property name="room1_image" type="single_media_selection"><meta><title lang="de">Zimmer 1 · Bild</title><title lang="en">Room 1 · Image</title></meta></property>
+                        <!-- Room 2 -->
+                        <property name="room2_number" type="text_line"><meta><title lang="de">Zimmer 2 · Nummer</title><title lang="en">Room 2 · Number</title></meta></property>
+                        <property name="room2_title" type="text_line"><meta><title lang="de">Zimmer 2 · Titel</title><title lang="en">Room 2 · Title</title></meta></property>
+                        <property name="room2_meta" type="text_line"><meta><title lang="de">Zimmer 2 · Meta</title><title lang="en">Room 2 · Meta</title></meta></property>
+                        <property name="room2_price" type="text_line"><meta><title lang="de">Zimmer 2 · Preis</title><title lang="en">Room 2 · Price</title></meta></property>
+                        <property name="room2_image" type="single_media_selection"><meta><title lang="de">Zimmer 2 · Bild</title><title lang="en">Room 2 · Image</title></meta></property>
+                        <!-- Room 3 -->
+                        <property name="room3_number" type="text_line"><meta><title lang="de">Zimmer 3 · Nummer</title><title lang="en">Room 3 · Number</title></meta></property>
+                        <property name="room3_title" type="text_line"><meta><title lang="de">Zimmer 3 · Titel</title><title lang="en">Room 3 · Title</title></meta></property>
+                        <property name="room3_meta" type="text_line"><meta><title lang="de">Zimmer 3 · Meta</title><title lang="en">Room 3 · Meta</title></meta></property>
+                        <property name="room3_price" type="text_line"><meta><title lang="de">Zimmer 3 · Preis</title><title lang="en">Room 3 · Price</title></meta></property>
+                        <property name="room3_image" type="single_media_selection"><meta><title lang="de">Zimmer 3 · Bild</title><title lang="en">Room 3 · Image</title></meta></property>
+                        <!-- Room 4 -->
+                        <property name="room4_number" type="text_line"><meta><title lang="de">Zimmer 4 · Nummer</title><title lang="en">Room 4 · Number</title></meta></property>
+                        <property name="room4_title" type="text_line"><meta><title lang="de">Zimmer 4 · Titel</title><title lang="en">Room 4 · Title</title></meta></property>
+                        <property name="room4_meta" type="text_line"><meta><title lang="de">Zimmer 4 · Meta</title><title lang="en">Room 4 · Meta</title></meta></property>
+                        <property name="room4_price" type="text_line"><meta><title lang="de">Zimmer 4 · Preis</title><title lang="en">Room 4 · Price</title></meta></property>
+                        <property name="room4_image" type="single_media_selection"><meta><title lang="de">Zimmer 4 · Bild</title><title lang="en">Room 4 · Image</title></meta></property>
+                        <!-- Room 5 -->
+                        <property name="room5_number" type="text_line"><meta><title lang="de">Zimmer 5 · Nummer</title><title lang="en">Room 5 · Number</title></meta></property>
+                        <property name="room5_title" type="text_line"><meta><title lang="de">Zimmer 5 · Titel</title><title lang="en">Room 5 · Title</title></meta></property>
+                        <property name="room5_meta" type="text_line"><meta><title lang="de">Zimmer 5 · Meta</title><title lang="en">Room 5 · Meta</title></meta></property>
+                        <property name="room5_price" type="text_line"><meta><title lang="de">Zimmer 5 · Preis</title><title lang="en">Room 5 · Price</title></meta></property>
+                        <property name="room5_image" type="single_media_selection"><meta><title lang="de">Zimmer 5 · Bild</title><title lang="en">Room 5 · Image</title></meta></property>
+                    </properties>
+                </type>
+
+                <!-- ===================== RESTAURANT ===================== -->
+                <type name="restaurant">
+                    <meta>
+                        <title lang="de">Restaurant</title>
+                        <title lang="en">Restaurant</title>
+                    </meta>
+                    <properties>
+                        <property name="eyebrow" type="text_line"><meta><title lang="de">Eyebrow</title><title lang="en">Eyebrow</title></meta></property>
+                        <property name="headline" type="text_line"><meta><title lang="de">Überschrift</title><title lang="en">Headline</title></meta></property>
+                        <property name="headline_italic" type="text_line"><meta><title lang="de">Überschrift kursiv</title><title lang="en">Headline italic</title></meta></property>
+                        <property name="text" type="text_editor"><meta><title lang="de">Text</title><title lang="en">Text</title></meta></property>
+                        <property name="chef_name" type="text_line"><meta><title lang="de">Koch · Name</title><title lang="en">Chef · Name</title></meta></property>
+                        <property name="chef_role" type="text_line"><meta><title lang="de">Koch · Rolle</title><title lang="en">Chef · Role</title></meta></property>
+                        <property name="chef_image" type="single_media_selection"><meta><title lang="de">Koch · Bild</title><title lang="en">Chef · Image</title></meta></property>
+                        <property name="main_image" type="single_media_selection"><meta><title lang="de">Hauptbild</title><title lang="en">Main Image</title></meta></property>
+                        <property name="accent_image" type="single_media_selection"><meta><title lang="de">Akzentbild</title><title lang="en">Accent Image</title></meta></property>
+                        <property name="michelin_label" type="text_line"><meta><title lang="de">Michelin Label</title><title lang="en">Michelin Label</title></meta></property>
+                        <property name="michelin_sub" type="text_line"><meta><title lang="de">Michelin Untertitel</title><title lang="en">Michelin Subtitle</title></meta></property>
+                        <property name="dish1_name" type="text_line"><meta><title lang="de">Gericht 1 · Name</title><title lang="en">Dish 1 · Name</title></meta></property>
+                        <property name="dish1_desc" type="text_line"><meta><title lang="de">Gericht 1 · Beschreibung</title><title lang="en">Dish 1 · Description</title></meta></property>
+                        <property name="dish2_name" type="text_line"><meta><title lang="de">Gericht 2 · Name</title><title lang="en">Dish 2 · Name</title></meta></property>
+                        <property name="dish2_desc" type="text_line"><meta><title lang="de">Gericht 2 · Beschreibung</title><title lang="en">Dish 2 · Description</title></meta></property>
+                        <property name="dish3_name" type="text_line"><meta><title lang="de">Gericht 3 · Name</title><title lang="en">Dish 3 · Name</title></meta></property>
+                        <property name="dish3_desc" type="text_line"><meta><title lang="de">Gericht 3 · Beschreibung</title><title lang="en">Dish 3 · Description</title></meta></property>
+                        <property name="dish4_name" type="text_line"><meta><title lang="de">Gericht 4 · Name</title><title lang="en">Dish 4 · Name</title></meta></property>
+                        <property name="dish4_desc" type="text_line"><meta><title lang="de">Gericht 4 · Beschreibung</title><title lang="en">Dish 4 · Description</title></meta></property>
+                        <property name="cta_text" type="text_line"><meta><title lang="de">CTA Text</title><title lang="en">CTA Text</title></meta></property>
+                    </properties>
+                </type>
+
+                <!-- ===================== LOUNGES ===================== -->
+                <type name="lounges">
+                    <meta>
+                        <title lang="de">Bar &amp; Lounge</title>
+                        <title lang="en">Bar &amp; Lounge</title>
+                    </meta>
+                    <properties>
+                        <property name="eyebrow" type="text_line"><meta><title lang="de">Eyebrow</title><title lang="en">Eyebrow</title></meta></property>
+                        <property name="headline" type="text_line"><meta><title lang="de">Überschrift</title><title lang="en">Headline</title></meta></property>
+                        <property name="headline_italic" type="text_line"><meta><title lang="de">Überschrift kursiv</title><title lang="en">Headline italic</title></meta></property>
+                        <property name="description" type="text_area"><meta><title lang="de">Beschreibung</title><title lang="en">Description</title></meta></property>
+                        <!-- Lounge 1 -->
+                        <property name="lounge1_number" type="text_line"><meta><title lang="de">Lounge 1 · Nummer</title><title lang="en">Lounge 1 · Number</title></meta></property>
+                        <property name="lounge1_title" type="text_line"><meta><title lang="de">Lounge 1 · Titel</title><title lang="en">Lounge 1 · Title</title></meta></property>
+                        <property name="lounge1_title_italic" type="text_line"><meta><title lang="de">Lounge 1 · Titel kursiv</title><title lang="en">Lounge 1 · Title italic</title></meta></property>
+                        <property name="lounge1_text" type="text_area"><meta><title lang="de">Lounge 1 · Text</title><title lang="en">Lounge 1 · Text</title></meta></property>
+                        <property name="lounge1_hours" type="text_line"><meta><title lang="de">Lounge 1 · Öffnungszeiten</title><title lang="en">Lounge 1 · Hours</title></meta></property>
+                        <property name="lounge1_image" type="single_media_selection"><meta><title lang="de">Lounge 1 · Bild</title><title lang="en">Lounge 1 · Image</title></meta></property>
+                        <!-- Lounge 2 -->
+                        <property name="lounge2_number" type="text_line"><meta><title lang="de">Lounge 2 · Nummer</title><title lang="en">Lounge 2 · Number</title></meta></property>
+                        <property name="lounge2_title" type="text_line"><meta><title lang="de">Lounge 2 · Titel</title><title lang="en">Lounge 2 · Title</title></meta></property>
+                        <property name="lounge2_title_italic" type="text_line"><meta><title lang="de">Lounge 2 · Titel kursiv</title><title lang="en">Lounge 2 · Title italic</title></meta></property>
+                        <property name="lounge2_text" type="text_area"><meta><title lang="de">Lounge 2 · Text</title><title lang="en">Lounge 2 · Text</title></meta></property>
+                        <property name="lounge2_hours" type="text_line"><meta><title lang="de">Lounge 2 · Öffnungszeiten</title><title lang="en">Lounge 2 · Hours</title></meta></property>
+                        <property name="lounge2_image" type="single_media_selection"><meta><title lang="de">Lounge 2 · Bild</title><title lang="en">Lounge 2 · Image</title></meta></property>
+                    </properties>
+                </type>
+
+                <!-- ===================== EVENTS ===================== -->
+                <type name="events">
+                    <meta>
+                        <title lang="de">Tagungen &amp; Events</title>
+                        <title lang="en">Meetings &amp; Events</title>
+                    </meta>
+                    <properties>
+                        <property name="eyebrow" type="text_line"><meta><title lang="de">Eyebrow</title><title lang="en">Eyebrow</title></meta></property>
+                        <property name="headline" type="text_line"><meta><title lang="de">Überschrift</title><title lang="en">Headline</title></meta></property>
+                        <property name="headline_italic" type="text_line"><meta><title lang="de">Überschrift kursiv</title><title lang="en">Headline italic</title></meta></property>
+                        <property name="text" type="text_area"><meta><title lang="de">Text</title><title lang="en">Text</title></meta></property>
+                        <property name="image" type="single_media_selection"><meta><title lang="de">Bild</title><title lang="en">Image</title></meta></property>
+                        <property name="ribbon_text" type="text_line"><meta><title lang="de">Ribbon Text</title><title lang="en">Ribbon Text</title></meta></property>
+                        <property name="quote_text" type="text_line"><meta><title lang="de">Zitat</title><title lang="en">Quote</title></meta></property>
+                        <property name="quote_who" type="text_line"><meta><title lang="de">Zitat Autor</title><title lang="en">Quote Author</title></meta></property>
+                        <property name="cta_text" type="text_line"><meta><title lang="de">CTA Text</title><title lang="en">CTA Text</title></meta></property>
+                        <!-- Event rooms 1–4 -->
+                        <property name="room1_number" type="text_line"><meta><title lang="de">Saal 1 · Nummer</title><title lang="en">Room 1 · Number</title></meta></property>
+                        <property name="room1_name" type="text_line"><meta><title lang="de">Saal 1 · Name</title><title lang="en">Room 1 · Name</title></meta></property>
+                        <property name="room1_capacity" type="text_line"><meta><title lang="de">Saal 1 · Kapazität</title><title lang="en">Room 1 · Capacity</title></meta></property>
+                        <property name="room1_type" type="text_line"><meta><title lang="de">Saal 1 · Typ</title><title lang="en">Room 1 · Type</title></meta></property>
+                        <property name="room2_number" type="text_line"><meta><title lang="de">Saal 2 · Nummer</title><title lang="en">Room 2 · Number</title></meta></property>
+                        <property name="room2_name" type="text_line"><meta><title lang="de">Saal 2 · Name</title><title lang="en">Room 2 · Name</title></meta></property>
+                        <property name="room2_capacity" type="text_line"><meta><title lang="de">Saal 2 · Kapazität</title><title lang="en">Room 2 · Capacity</title></meta></property>
+                        <property name="room2_type" type="text_line"><meta><title lang="de">Saal 2 · Typ</title><title lang="en">Room 2 · Type</title></meta></property>
+                        <property name="room3_number" type="text_line"><meta><title lang="de">Saal 3 · Nummer</title><title lang="en">Room 3 · Number</title></meta></property>
+                        <property name="room3_name" type="text_line"><meta><title lang="de">Saal 3 · Name</title><title lang="en">Room 3 · Name</title></meta></property>
+                        <property name="room3_capacity" type="text_line"><meta><title lang="de">Saal 3 · Kapazität</title><title lang="en">Room 3 · Capacity</title></meta></property>
+                        <property name="room3_type" type="text_line"><meta><title lang="de">Saal 3 · Typ</title><title lang="en">Room 3 · Type</title></meta></property>
+                        <property name="room4_number" type="text_line"><meta><title lang="de">Saal 4 · Nummer</title><title lang="en">Room 4 · Number</title></meta></property>
+                        <property name="room4_name" type="text_line"><meta><title lang="de">Saal 4 · Name</title><title lang="en">Room 4 · Name</title></meta></property>
+                        <property name="room4_capacity" type="text_line"><meta><title lang="de">Saal 4 · Kapazität</title><title lang="en">Room 4 · Capacity</title></meta></property>
+                        <property name="room4_type" type="text_line"><meta><title lang="de">Saal 4 · Typ</title><title lang="en">Room 4 · Type</title></meta></property>
+                    </properties>
+                </type>
+
+                <!-- ===================== HISTORY ===================== -->
+                <type name="history">
+                    <meta>
+                        <title lang="de">Geschichte</title>
+                        <title lang="en">History</title>
+                    </meta>
+                    <properties>
+                        <property name="eyebrow" type="text_line"><meta><title lang="de">Eyebrow</title><title lang="en">Eyebrow</title></meta></property>
+                        <property name="headline" type="text_line"><meta><title lang="de">Überschrift</title><title lang="en">Headline</title></meta></property>
+                        <property name="headline_italic" type="text_line"><meta><title lang="de">Überschrift kursiv</title><title lang="en">Headline italic</title></meta></property>
+                        <property name="intro_text" type="text_line"><meta><title lang="de">Einleitungstext</title><title lang="en">Intro Text</title></meta></property>
+                        <!-- Timeline 1–5 -->
+                        <property name="tl1_year" type="text_line"><meta><title lang="de">Jahreszahl 1</title><title lang="en">Year 1</title></meta></property>
+                        <property name="tl1_title" type="text_line"><meta><title lang="de">Titel 1</title><title lang="en">Title 1</title></meta></property>
+                        <property name="tl1_text" type="text_area"><meta><title lang="de">Text 1</title><title lang="en">Text 1</title></meta></property>
+                        <property name="tl2_year" type="text_line"><meta><title lang="de">Jahreszahl 2</title><title lang="en">Year 2</title></meta></property>
+                        <property name="tl2_title" type="text_line"><meta><title lang="de">Titel 2</title><title lang="en">Title 2</title></meta></property>
+                        <property name="tl2_text" type="text_area"><meta><title lang="de">Text 2</title><title lang="en">Text 2</title></meta></property>
+                        <property name="tl3_year" type="text_line"><meta><title lang="de">Jahreszahl 3</title><title lang="en">Year 3</title></meta></property>
+                        <property name="tl3_title" type="text_line"><meta><title lang="de">Titel 3</title><title lang="en">Title 3</title></meta></property>
+                        <property name="tl3_text" type="text_area"><meta><title lang="de">Text 3</title><title lang="en">Text 3</title></meta></property>
+                        <property name="tl4_year" type="text_line"><meta><title lang="de">Jahreszahl 4</title><title lang="en">Year 4</title></meta></property>
+                        <property name="tl4_title" type="text_line"><meta><title lang="de">Titel 4</title><title lang="en">Title 4</title></meta></property>
+                        <property name="tl4_text" type="text_area"><meta><title lang="de">Text 4</title><title lang="en">Text 4</title></meta></property>
+                        <property name="tl5_year" type="text_line"><meta><title lang="de">Jahreszahl 5</title><title lang="en">Year 5</title></meta></property>
+                        <property name="tl5_title" type="text_line"><meta><title lang="de">Titel 5</title><title lang="en">Title 5</title></meta></property>
+                        <property name="tl5_text" type="text_area"><meta><title lang="de">Text 5</title><title lang="en">Text 5</title></meta></property>
+                    </properties>
+                </type>
+
+                <!-- ===================== IMAGE + TEXT ===================== -->
+                <type name="image_text">
+                    <meta>
+                        <title lang="de">Bild + Text</title>
+                        <title lang="en">Image + Text</title>
+                    </meta>
+                    <properties>
+                        <property name="use_container" type="checkbox" mandatory="false">
+                            <meta>
+                                <title lang="de">Container-Breite (50rem)</title>
+                                <title lang="en">Container width (50rem)</title>
+                            </meta>
+                        </property>
+                        <property name="image" type="single_media_selection" mandatory="false">
+                            <meta>
+                                <title lang="de">Bild</title>
+                                <title lang="en">Image</title>
+                            </meta>
+                        </property>
+                        <property name="text" type="text_editor" mandatory="false">
+                            <meta>
+                                <title lang="de">Text</title>
+                                <title lang="en">Text</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+
+                <!-- ===================== CTA STRIP ===================== -->
+                <type name="cta_strip">
+                    <meta>
+                        <title lang="de">CTA-Bereich</title>
+                        <title lang="en">CTA Strip</title>
+                    </meta>
+                    <properties>
+                        <property name="eyebrow" type="text_line"><meta><title lang="de">Eyebrow</title><title lang="en">Eyebrow</title></meta></property>
+                        <property name="headline" type="text_line"><meta><title lang="de">Überschrift</title><title lang="en">Headline</title></meta></property>
+                        <property name="headline_italic" type="text_line"><meta><title lang="de">Überschrift kursiv</title><title lang="en">Headline italic</title></meta></property>
+                        <property name="text" type="text_area"><meta><title lang="de">Text</title><title lang="en">Text</title></meta></property>
+                        <property name="button_text" type="text_line"><meta><title lang="de">Button Text</title><title lang="en">Button Text</title></meta></property>
+                        <property name="background_image" type="single_media_selection"><meta><title lang="de">Hintergrundbild</title><title lang="en">Background Image</title></meta></property>
+                    </properties>
+                </type>
+
+            </types>
+        </block>
+    </properties>
+</template>
