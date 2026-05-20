@@ -1,0 +1,46 @@
+services:
+    database:
+        image: mariadb:11.4
+        ports:
+            - "10002:3306"
+        command: [ mariadbd, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-per-table=1 ]
+        volumes:
+            - sulu-database:/var/lib/mysql
+        environment:
+            - MARIADB_ROOT_PASSWORD=ROOT
+            - MARIADB_DATABASE=sulu
+            - MARIADB_USER=sulu
+            - MARIADB_PASSWORD=sulu
+        healthcheck:
+            test: [ "CMD-SHELL", "mariadb -h database -u$$MARIADB_USER -p$$MARIADB_PASSWORD $$MARIADB_DATABASE -e 'SHOW TABLES;'" ]
+            interval: 10s
+            retries: 6
+            start_period: 1m
+            timeout: 3s
+
+    nginx:
+        image: nginx:stable-alpine
+        ports:
+            - "8083:80"
+        volumes:
+            - .:/var/www/html:ro
+            - ./.docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+        depends_on:
+            - php
+
+    php:
+        user: '1000:1000'
+        image: pimcore/pimcore:php8.3-latest
+        environment:
+            COMPOSER_HOME: /tmp
+            PHP_IDE_CONFIG: serverName=localhost
+        depends_on:
+            database:
+                condition: service_healthy
+        volumes:
+            - .:/var/www/html
+            - ./.docker/php.ini:/usr/local/etc/php/conf.d/30-aw-custom.ini:ro
+            - ~/.config/composer/auth.json:/tmp/auth.json:ro
+
+volumes:
+    sulu-database:
