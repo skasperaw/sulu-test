@@ -1,0 +1,39 @@
+app.contact_person.get_contact_person:
+    path: /contact-persons/{id}.{_format}
+    controller: App\Controller\Admin\ContactPersonController::getAction
+    methods: GET
+    format: json
+    requirements:
+        _format: json
+
+app.contact_person.get_contact_persons:
+    path: /contact-persons.{_format}
+    controller: App\Controller\Admin\ContactPersonController::cgetAction
+    methods: GET
+    format: json
+    requirements:
+        _format: json
+
+app.contact_person.post_contact_person:
+    path: /contact-persons.{_format}
+    controller: App\Controller\Admin\ContactPersonController::postAction
+    methods: POST
+    format: json
+    requirements:
+        _format: json
+
+app.contact_person.put_contact_person:
+    path: /contact-persons/{id}.{_format}
+    controller: App\Controller\Admin\ContactPersonController::putAction
+    methods: PUT
+    format: json
+    requirements:
+        _format: json
+
+app.contact_person.delete_contact_person:
+    path: /contact-persons/{id}.{_format}
+    controller: App\Controller\Admin\ContactPersonController::deleteAction
+    methods: DELETE
+    format: json
+    requirements:
+        _format: json

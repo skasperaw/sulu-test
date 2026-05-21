@@ -22,6 +22,14 @@
     <img src="{{ image.thumbnails['300x'] }}" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}">
     -->
 
+    <format key="contact_avatar">
+        <meta>
+            <title lang="en">Contact Person Avatar</title>
+            <title lang="de">Ansprechpartner Foto</title>
+        </meta>
+        <scale x="200" y="200" mode="outbound"/>
+    </format>
+
     <format key="hotel_wide">
         <meta>
             <title lang="en">Hotel Wide</title>

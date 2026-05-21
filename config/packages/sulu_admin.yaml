@@ -6,3 +6,22 @@ sulu_admin:
     lists:
         directories:
             - "%kernel.project_dir%/config/lists"
+    resources:
+        contact_persons:
+            routes:
+                list: app.contact_person.get_contact_persons
+                detail: app.contact_person.get_contact_person
+    field_type_options:
+        single_selection:
+            single_contact_person:
+                default_type: list_overlay
+                resource_key: contact_persons
+                types:
+                    list_overlay:
+                        adapter: table
+                        list_key: contact_persons
+                        display_properties:
+                            - fullName
+                        empty_text: app.no_contact_person_selected
+                        icon: su-user
+                        overlay_title: app.contact_person_selection_overlay_title

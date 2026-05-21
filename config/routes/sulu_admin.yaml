@@ -1,3 +1,7 @@
+app_contact_person_api:
+    resource: "../../config/routes/admin_api.yaml"
+    prefix: /admin/api
+
 sulu_tag_api:
     resource: "@SuluTagBundle/Resources/config/routing_api.yaml"
     prefix: /admin/api

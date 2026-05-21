@@ -1,0 +1,13 @@
+app:
+    data_objects: Data Objects
+    contact_persons: Contact Persons
+    name: Name
+    first_name: First Name
+    last_name: Last Name
+    position: Position
+    contact: Contact
+    email: Email
+    phone: Phone
+    photo: Photo
+    no_contact_person_selected: No contact person selected
+    contact_person_selection_overlay_title: Select Contact Person

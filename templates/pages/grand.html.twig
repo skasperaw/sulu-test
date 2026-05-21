@@ -20,6 +20,8 @@
             {{- include('pages/partials/grand/block-history.html.twig', { block: block }) -}}
         {%- elseif block.type == 'image_text' -%}
             {{- include('pages/partials/grand/block-image-text.html.twig', { block: block }) -}}
+        {%- elseif block.type == 'contact_person' -%}
+            {{- include('pages/partials/grand/block-contact-person.html.twig', { block: block }) -}}
         {%- elseif block.type == 'cta_strip' -%}
             {{- include('pages/partials/grand/block-cta-strip.html.twig', { block: block }) -}}
         {%- endif -%}

@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<list xmlns="http://schemas.sulu.io/list-builder/list">
+    <key>contact_persons</key>
+
+    <properties>
+        <property
+            name="id"
+            visibility="no"
+            searchability="never"
+            translation="sulu_admin.id"
+        >
+            <field-name>id</field-name>
+            <entity-name>App\Entity\ContactPerson</entity-name>
+        </property>
+
+        <concatenation-property
+            name="fullName"
+            visibility="always"
+            searchability="yes"
+            sortable="false"
+            translation="app.name"
+        >
+            <field>
+                <field-name>firstName</field-name>
+                <entity-name>App\Entity\ContactPerson</entity-name>
+            </field>
+            <field>
+                <field-name>lastName</field-name>
+                <entity-name>App\Entity\ContactPerson</entity-name>
+            </field>
+        </concatenation-property>
+
+        <property
+            name="position"
+            visibility="yes"
+            searchability="yes"
+            translation="app.position"
+        >
+            <field-name>position</field-name>
+            <entity-name>App\Entity\ContactPerson</entity-name>
+        </property>
+
+        <property
+            name="email"
+            visibility="yes"
+            searchability="yes"
+            translation="app.email"
+        >
+            <field-name>email</field-name>
+            <entity-name>App\Entity\ContactPerson</entity-name>
+        </property>
+
+        <property
+            name="phone"
+            visibility="yes"
+            searchability="no"
+            translation="app.phone"
+        >
+            <field-name>phone</field-name>
+            <entity-name>App\Entity\ContactPerson</entity-name>
+        </property>
+    </properties>
+</list>

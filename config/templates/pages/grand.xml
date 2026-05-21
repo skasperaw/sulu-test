@@ -327,6 +327,34 @@
                     </properties>
                 </type>
 
+                <!-- ===================== ANSPRECHPARTNER ===================== -->
+                <type name="contact_person">
+                    <meta>
+                        <title lang="de">Ansprechpartner</title>
+                        <title lang="en">Contact Person</title>
+                    </meta>
+                    <properties>
+                        <property name="contact_person" type="single_contact_person" mandatory="true">
+                            <meta>
+                                <title lang="de">Ansprechpartner</title>
+                                <title lang="en">Contact Person</title>
+                            </meta>
+                        </property>
+                        <property name="eyebrow" type="text_line">
+                            <meta>
+                                <title lang="de">Eyebrow</title>
+                                <title lang="en">Eyebrow</title>
+                            </meta>
+                        </property>
+                        <property name="headline" type="text_line">
+                            <meta>
+                                <title lang="de">Überschrift</title>
+                                <title lang="en">Headline</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+
                 <!-- ===================== CTA STRIP ===================== -->
                 <type name="cta_strip">
                     <meta>

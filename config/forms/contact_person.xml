@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<form xmlns="http://schemas.sulu.io/template/template"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/form-1.0.xsd"
+>
+    <key>contact_person</key>
+
+    <properties>
+        <section name="name_section" colspan="8">
+            <meta>
+                <title>app.name</title>
+            </meta>
+            <properties>
+                <property name="firstName" type="text_line" mandatory="true" colspan="6">
+                    <meta>
+                        <title>app.first_name</title>
+                    </meta>
+                </property>
+
+                <property name="lastName" type="text_line" mandatory="true" colspan="6">
+                    <meta>
+                        <title>app.last_name</title>
+                    </meta>
+                </property>
+
+                <property name="position" type="text_line" colspan="12">
+                    <meta>
+                        <title>app.position</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="contact_section" colspan="8">
+            <meta>
+                <title>app.contact</title>
+            </meta>
+            <properties>
+                <property name="email" type="text_line" colspan="6">
+                    <meta>
+                        <title>app.email</title>
+                    </meta>
+                </property>
+
+                <property name="phone" type="text_line" colspan="6">
+                    <meta>
+                        <title>app.phone</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="photo_section" colspan="4">
+            <meta>
+                <title>app.photo</title>
+            </meta>
+            <properties>
+                <property name="mediaId" type="single_media_selection" colspan="12">
+                    <meta>
+                        <title>app.photo</title>
+                    </meta>
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+            </properties>
+        </section>
+    </properties>
+</form>

@@ -1,0 +1,50 @@
+{%- set person = block.contact_person -%}
+
+{%- if person -%}
+<section class="contact-person section-pad">
+    <div class="wrap">
+        {%- if block.eyebrow -%}
+            <div class="eyebrow"><span class="rule" aria-hidden="true"></span>{{- block.eyebrow -}}</div>
+        {%- endif -%}
+
+        {%- if block.headline -%}
+            <h2>{{- block.headline -}}</h2>
+        {%- endif -%}
+
+        <div class="contact-person__card reveal">
+            {%- if person.mediaId -%}
+                {%- set photo = sulu_resolve_media(person.mediaId, app.request.locale) -%}
+                {%- if photo -%}
+                    <div class="contact-person__photo">
+                        <img src="{{- photo.thumbnails['contact_avatar'] -}}"
+                             alt="{{- person.fullName -}}"
+                             width="200"
+                             height="200"
+                             loading="lazy">
+                    </div>
+                {%- endif -%}
+            {%- endif -%}
+
+            <address class="contact-person__details">
+                <strong class="contact-person__name">{{- person.fullName -}}</strong>
+
+                {%- if person.position -%}
+                    <span class="contact-person__position">{{- person.position -}}</span>
+                {%- endif -%}
+
+                {%- if person.email -%}
+                    <a class="contact-person__email" href="mailto:{{- person.email -}}">
+                        {{- person.email -}}
+                    </a>
+                {%- endif -%}
+
+                {%- if person.phone -%}
+                    <a class="contact-person__phone" href="tel:{{- person.phone|replace({' ': '', '/': ''}) -}}">
+                        {{- person.phone -}}
+                    </a>
+                {%- endif -%}
+            </address>
+        </div>
+    </div>
+</section>
+{%- endif -%}
